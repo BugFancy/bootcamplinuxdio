@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Create users
+useradd user1
+useradd user2
+
+# Create groups
+groupadd group1
+groupadd group2
+
+# Add users to groups
+usermod -a -G group1 user1
+usermod -a -G group2 user2
+
+# Add admin privileges
+usermod -a -G admin user1
+
+# Create directories
+mkdir /home/user1
+mkdir /home/user2
+
+# Set permissions
+chown user1:group1 /home/user1
+chown user2:group2 /home/user2
+chmod 700 /home/user1
+chmod 700 /home/user2
+
+# Para executar esse script, você precisará executá-lo com permissão de administrador:
+
+sudo ./create_users_structure.sh
